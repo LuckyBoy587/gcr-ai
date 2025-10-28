@@ -7,6 +7,13 @@ const API_KEY = import.meta.env.VITE_GCR_API_KEY || '';
 
 /**
  * Fetch user/project details from GCR API
+ * 
+ * NOTE: This is a template implementation. You may need to adjust:
+ * 1. The endpoint construction based on your specific GCR API usage
+ *    - For listing tags: /v2/{repository-name}/tags/list
+ *    - For manifests: /v2/{repository-name}/manifests/{reference}
+ * 2. Authentication method (OAuth2 token, service account, etc.)
+ * 
  * @returns {Promise<Object>} User details from GCR
  */
 export const fetchGCRDetails = async () => {
@@ -17,9 +24,11 @@ export const fetchGCRDetails = async () => {
     }
 
     // Construct the API endpoint
+    // Adjust this based on your specific repository and API endpoint needs
     const endpoint = `${API_URL}/${PROJECT_ID}/tags/list`;
     
     // Make API request with authentication
+    // Note: GCR typically uses OAuth2 access tokens. Adjust authentication as needed.
     const response = await fetch(endpoint, {
       method: 'GET',
       headers: {

@@ -44,9 +44,19 @@ Edit the `.env` file and add your actual GCR API credentials:
 ```env
 VITE_GCR_API_URL=https://gcr.io/v2
 VITE_GCR_PROJECT_ID=your-actual-project-id
-VITE_GCR_API_KEY=your-actual-api-key
+VITE_GCR_API_KEY=your-oauth2-access-token
 VITE_GCR_SERVICE_ACCOUNT=your-service-account@your-project.iam.gserviceaccount.com
 ```
+
+**Getting GCR Authentication Token:**
+
+The `VITE_GCR_API_KEY` should be an OAuth2 access token. You can generate one using:
+
+```bash
+gcloud auth print-access-token
+```
+
+Note: This token expires after 1 hour. For production use, consider implementing proper OAuth2 flow or backend authentication.
 
 **Important:** Never commit the `.env` file to version control. It's already included in `.gitignore`.
 
