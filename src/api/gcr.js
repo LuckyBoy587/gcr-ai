@@ -1,0 +1,1 @@
+const { GCR_CLIENT_ID, GCR_CLIENT_SECRET } = import.meta.env
