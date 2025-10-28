@@ -42,6 +42,18 @@ function App() {
         // Handle the callback
         handleOAuthCallback(newClient, code, state)
       }
+    } else {
+      // Not an OAuth callback - check if we have saved credentials and restore client
+      const savedClientId = localStorage.getItem('gcr_client_id')
+      const savedClientSecret = localStorage.getItem('gcr_client_secret')
+      
+      if (savedClientId && savedClientSecret) {
+        // Restore client from saved credentials (tokens will be loaded from localStorage)
+        const restoredClient = new GoogleClassroomClient(savedClientId, savedClientSecret)
+        setClient(restoredClient)
+        setClientId(savedClientId)
+        setClientSecret(savedClientSecret)
+      }
     }
   }, [])
 
