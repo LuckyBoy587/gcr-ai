@@ -6,12 +6,21 @@ const OAUTH_AUTH_URL = 'https://accounts.google.com/o/oauth2/v2/auth';
 const REDIRECT_URI = `${window.location.origin}/oauth/callback`;
 
 // Token storage keys
+// SECURITY NOTE: For production applications, consider using more secure storage
+// mechanisms such as encrypted storage or server-side session management.
+// localStorage is used here for simplicity but stores data in clear text.
 const TOKEN_STORAGE_KEY = 'gcr_access_token';
 const REFRESH_TOKEN_STORAGE_KEY = 'gcr_refresh_token';
 const TOKEN_EXPIRY_STORAGE_KEY = 'gcr_token_expiry';
 
 /**
  * Class to handle Google Classroom API authentication and requests
+ * 
+ * SECURITY CONSIDERATIONS:
+ * - Tokens are stored in localStorage which is clear text storage
+ * - For production, implement encrypted storage or secure HTTP-only cookies
+ * - Client secrets should ideally be kept server-side in production
+ * - This implementation is suitable for development and demonstration purposes
  */
 class GoogleClassroomClient {
   constructor(clientId, clientSecret) {

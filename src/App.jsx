@@ -2,6 +2,16 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import { GoogleClassroomClient } from './api/gcr.js'
 
+/**
+ * Google Classroom API Client Demo Application
+ * 
+ * SECURITY WARNING: This demo stores credentials in localStorage for demonstration purposes.
+ * For production applications:
+ * - Never store client secrets in frontend code
+ * - Use server-side OAuth flow with HTTP-only cookies
+ * - Implement encrypted storage for sensitive data
+ * - Use environment variables for credentials
+ */
 function App() {
   const [client, setClient] = useState(null)
   const [isAuthenticated, setIsAuthenticated] = useState(false)
