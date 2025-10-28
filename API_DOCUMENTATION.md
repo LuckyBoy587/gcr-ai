@@ -6,7 +6,7 @@ This application provides a comprehensive OAuth 2.0 client for making authentica
 
 - ✅ OAuth 2.0 Authorization Code Flow
 - ✅ Automatic token refresh
-- ✅ Secure token storage (localStorage)
+- ✅ Token storage in localStorage (see Security section for production considerations)
 - ✅ Support for all HTTP methods (GET, POST, PUT, DELETE, etc.)
 - ✅ Comprehensive error handling
 - ✅ CSRF protection with state parameter

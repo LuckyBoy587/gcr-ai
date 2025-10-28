@@ -3,6 +3,9 @@
  * 
  * This file demonstrates various ways to use the API client
  * for making authenticated requests to Google Classroom API.
+ * 
+ * Note: This file is located in the project root for reference.
+ * If you copy these examples to other files, adjust the import paths accordingly.
  */
 
 import { GoogleClassroomClient, makeAuthenticatedRequest } from './src/api/gcr.js';
